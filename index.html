@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker Technology Background</title>
+    <title>Spike Technologies - Coming Soon</title>
     <style>
         /* Basic Reset */
         * {
@@ -14,13 +14,13 @@
 
         /* Body Style with Matrix Background */
         body {
-            background-color: #000; /* Fallback */
+            background-color: #000;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: 'Courier New', Courier, monospace;
-            overflow: hidden; /* To prevent scrollbars with the animation */
+            overflow: hidden;
             position: relative;
         }
 
@@ -31,68 +31,82 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Puts the canvas behind everything */
-            opacity: 0.7; /* Slightly transparent for better text readability */
+            z-index: -1;
+            opacity: 0.6;
         }
 
         /* Content Box Style */
         .content-box {
-            background: rgba(0, 20, 0, 0.8); /* Semi-transparent dark green background */
-            border: 2px solid #0f0; /* Bright green border */
-            border-radius: 10px;
-            padding: 40px;
+            background: rgba(0, 15, 0, 0.85);
+            border: 2px solid #0f0;
+            border-radius: 12px;
+            padding: 40px 30px;
             text-align: center;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Green glow effect */
-            color: #0f0; /* Green text */
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.4);
+            color: #0f0;
             max-width: 600px;
             width: 90%;
-            animation: glitch 1s infinite; /* Optional glitch effect */
+        }
+
+        .content-box .tagline {
+            font-size: 1rem;
+            color: #adfaad;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
         }
 
         .content-box h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
             text-transform: uppercase;
-            text-shadow: 2px 2px 4px #000;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+        }
+
+        .content-box h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .content-box .founder {
+            font-size: 1.1rem;
+            color: #0f0;
+            margin-bottom: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
         .content-box p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             line-height: 1.6;
             margin-bottom: 30px;
+            color: #adfaad;
         }
 
         .btn-hacker {
             background-color: #0f0;
             color: #000;
             border: none;
-            padding: 15px 30px;
-            font-size: 1.2rem;
+            padding: 12px 25px;
+            font-size: 1.1rem;
             font-weight: bold;
             text-transform: uppercase;
             cursor: pointer;
             border-radius: 5px;
-            transition: background-color 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
         }
 
         .btn-hacker:hover {
             background-color: #fff;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-        }
-
-        /* Glitch Animation Keyframes */
-        @keyframes glitch {
-            2%, 64% {
-                transform: translate(2px, 0) skew(0deg);
-            }
-            4%, 60% {
-                transform: translate(-2px, 0) skew(0deg);
-            }
-            62% {
-                transform: translate(0, 0) skew(5deg);
-            }
+            color: #000;
+            box-shadow: 0 0 20px #fff;
         }
     </style>
 </head>
@@ -103,9 +117,12 @@
 
     <!-- Content Box -->
     <div class="content-box">
-        <h1>System Access Granted</h1>
-        <p>Welcome, User. You have successfully breached the firewall. The mainframe is now accessible. Proceed with caution.</p>
-        <a href="#" class="btn-hacker">Initialize Protocol</a>
+        <div class="tagline">Next-Gen Innovation</div>
+        <h1>Spike Technologies</h1>
+        <h2>Coming Soon</h2>
+        <div class="founder">Founder: Debjit Das</div>
+        <p>We are engineering something extraordinary. Our digital mainframe is currently under development. Stay tuned for the launch.</p>
+        <a href="#" class="btn-hacker">Notify Me</a>
     </div>
 
     <!-- JavaScript for Matrix Animation -->
@@ -113,60 +130,45 @@
         const canvas = document.getElementById('matrix-bg');
         const ctx = canvas.getContext('2d');
 
-        // Set canvas size to full window
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        // Characters to use (katakana, numbers, latin alphabet)
         const katakana = 'アカサタナハマヤラワキシチニヒミリヰウクスツヌフムユルヱエケセテネヘメレヲゴザダバヂヅデドビピヴゲゼデベペゾドボプヴ';
         const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         const nums = '0123456789';
         const alphabet = katakana + latin + nums;
 
         const fontSize = 16;
-        const columns = canvas.width / fontSize; // Number of columns for the rain
+        const columns = canvas.width / fontSize;
 
-        // An array of drops - one per column
         const drops = [];
         for (let x = 0; x < columns; x++) {
-            drops[x] = 1; // Initial y coordinate for each drop
+            drops[x] = 1;
         }
 
-        // Drawing the characters
         function draw() {
-            // Black background for the canvas with a low opacity to create a fade effect
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#0F0'; // Green text color
+            ctx.fillStyle = '#0F0';
             ctx.font = fontSize + 'px monospace';
 
-            // Loop over each drop
             for (let i = 0; i < drops.length; i++) {
-                // Print a random character
                 const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-                // x = i*fontSize, y = drops[i]*fontSize
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-                // Sending the drop back to the top randomly after it has crossed the screen
-                // Adding a randomness to the drop reset to make the rain look more organic
                 if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                     drops[i] = 0;
                 }
-
-                // Incrementing Y coordinate
                 drops[i]++;
             }
         }
 
-        // Run the draw function every 33ms
         setInterval(draw, 33);
 
-        // Resize event listener to handle window resizing
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            // Reset drops array on resize
             for (let x = 0; x < columns; x++) {
                 drops[x] = 1;
             }
