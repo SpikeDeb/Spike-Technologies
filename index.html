@@ -17,67 +17,59 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
             text-align: center;
             background-image: radial-gradient(circle at center, #111e38 0%, #0b0f19 70%);
+            padding: 20px;
         }
         .container {
-            max-width: 650px;
-            padding: 30px;
+            max-width: 100%;
+            width: 100%;
+            padding: 10px;
         }
         .quote {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: #94a3b8;
             font-style: italic;
             margin-bottom: 25px;
-            animation: fadeIn 2s ease-in-out;
-            line-height: 1.6;
+            line-height: 1.5;
         }
         h1 {
-            font-size: 3.2rem;
+            font-size: 2.2rem;
             color: #00f0ff;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             margin-bottom: 15px;
-            text-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+            word-break: break-word;
         }
-        p {
-            font-size: 1.15rem;
-            color: #cbd5e1;
+        .founder {
+            font-size: 0.9rem;
+            color: #64748b;
             letter-spacing: 1px;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
         }
         .status {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 10px 24px;
             border: 2px solid #00f0ff;
             color: #00f0ff;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-weight: bold;
             border-radius: 30px;
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
-            animation: pulse 1.5s infinite;
             text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 240, 255, 0.2); }
-            50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(0, 240, 255, 0.5); }
-            100% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 240, 255, 0.2); }
-            }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            letter-spacing: 1.5px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="quote">"They said it was impossible, but I carried it in my heart all along."</div>
+        <div class="quote">"They called it impossible. I called it my mission."</div>
         <h1>Spike Technologies</h1>
-        <p>The future of digital innovation is being built in silence.</p>
+        <div class="founder">Founder: Debjit Das</div>
         <div class="status">Coming Soon ⚡</div>
     </div>
 
