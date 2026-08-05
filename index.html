@@ -3,176 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spike Technologies - Coming Soon</title>
+    <title>Spike Technologies — Coming Soon</title>
+    <!-- Google Fonts for Luxury Editorial & Clean Tech Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
-        /* Basic Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Body Style with Matrix Background */
         body {
-            background-color: #000;
+            background-color: #08090a;
+            color: #f3f4f6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Courier New', Courier, monospace;
             overflow: hidden;
             position: relative;
         }
 
-        /* Matrix Code Background Animation */
-        canvas#matrix-bg {
+        /* Ambient Rich Background Glows */
+        .ambient-glow-1 {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.6;
+            top: -15%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(8, 9, 10, 0) 70%);
+            z-index: 0;
+            pointer-events: none;
         }
 
-        /* Content Box Style */
-        .content-box {
-            background: rgba(0, 15, 0, 0.85);
-            border: 2px solid #0f0;
-            border-radius: 12px;
-            padding: 40px 30px;
+        .ambient-glow-2 {
+            position: absolute;
+            bottom: -15%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, rgba(8, 9, 10, 0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Luxury Glass Card */
+        .luxury-card {
+            position: relative;
+            z-index: 1;
+            background: rgba(18, 20, 23, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 50px 40px;
             text-align: center;
-            box-shadow: 0 0 25px rgba(0, 255, 0, 0.4);
-            color: #0f0;
-            max-width: 600px;
+            max-width: 620px;
             width: 90%;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
-        .content-box .tagline {
-            font-size: 1rem;
-            color: #adfaad;
+        .status-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin-bottom: 5px;
-        }
-
-        .content-box h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
-        }
-
-        .content-box h2 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-        }
-
-        .content-box .founder {
-            font-size: 1.1rem;
-            color: #0f0;
+            color: #d4af37; /* Rich Champagne Gold */
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 6px 16px;
+            border-radius: 50px;
             margin-bottom: 20px;
-            font-weight: bold;
-            letter-spacing: 1px;
         }
 
-        .content-box p {
-            font-size: 1rem;
+        .luxury-card h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: -1px;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .luxury-card h1 span {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: #d4af37;
+        }
+
+        .founder {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            margin-bottom: 22px;
+        }
+
+        .founder strong {
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.15);
+            margin: 0 auto 22px auto;
+        }
+
+        .luxury-card p {
+            font-size: 0.95rem;
             line-height: 1.6;
-            margin-bottom: 30px;
-            color: #adfaad;
+            color: #9ca3af;
+            margin-bottom: 35px;
+            font-weight: 300;
         }
 
-        .btn-hacker {
-            background-color: #0f0;
-            color: #000;
+        /* Notify Me Button with Color Change on Click */
+        .btn-luxury {
+            background: #ffffff;
+            color: #08090a;
             border: none;
-            padding: 12px 25px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            padding: 16px 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
             text-transform: uppercase;
+            letter-spacing: 1.5px;
             cursor: pointer;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             display: inline-block;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
         }
 
-        .btn-hacker:hover {
-            background-color: #fff;
-            color: #000;
-            box-shadow: 0 0 20px #fff;
+        .btn-luxury:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Active/Clicked State Color Change */
+        .btn-luxury.active-state {
+            background: #d4af37 !important; /* Changes to Rich Gold */
+            color: #ffffff !important;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+            transform: scale(0.98);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 580px) {
+            .luxury-card {
+                padding: 40px 20px;
+            }
+            .luxury-card h1 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Matrix Background Canvas -->
-    <canvas id="matrix-bg"></canvas>
+    <!-- Ambient Rich Background Lighting -->
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
 
-    <!-- Content Box -->
-    <div class="content-box">
-        <div class="tagline">Next-Gen Innovation</div>
-        <h1>Spike Technologies</h1>
-        <h2>Coming Soon</h2>
-        <div class="founder">Founder: Debjit Das</div>
-        <p>We are engineering something extraordinary. Our digital mainframe is currently under development. Stay tuned for the launch.</p>
-        <a href="#" class="btn-hacker">Notify Me</a>
+    <!-- Main Content Card -->
+    <div class="luxury-card">
+        <div class="status-badge">Private Beta &bull; Coming Soon</div>
+        <h1>Spike <span>Technologies</span></h1>
+        <div class="founder">Founded by <strong>Debjit Das</strong></div>
+        <div class="divider"></div>
+        <p>We are architecting high-performance digital ecosystems and elite enterprise solutions. Excellence is currently in development.</p>
+        
+        <!-- Notify Me Button -->
+        <button id="notifyBtn" class="btn-luxury" onclick="toggleNotify()">Notify Me</button>
     </div>
 
-    <!-- JavaScript for Matrix Animation -->
+    <!-- JavaScript to Handle Color Change on Click -->
     <script>
-        const canvas = document.getElementById('matrix-bg');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const katakana = 'アカサタナハマヤラワキシチニヒミリヰウクスツヌフムユルヱエケセテネヘメレヲゴザダバヂヅデドビピヴゲゼデベペゾドボプヴ';
-        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const nums = '0123456789';
-        const alphabet = katakana + latin + nums;
-
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-
-        const drops = [];
-        for (let x = 0; x < columns; x++) {
-            drops[x] = 1;
-        }
-
-        function draw() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = '#0F0';
-            ctx.font = fontSize + 'px monospace';
-
-            for (let i = 0; i < drops.length; i++) {
-                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
+        function toggleNotify() {
+            const btn = document.getElementById('notifyBtn');
+            btn.classList.toggle('active-state');
+            
+            if (btn.classList.contains('active-state')) {
+                btn.innerText = 'Subscribed ✓';
+            } else {
+                btn.innerText = 'Notify Me';
             }
         }
-
-        setInterval(draw, 33);
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            for (let x = 0; x < columns; x++) {
-                drops[x] = 1;
-            }
-        });
     </script>
 </body>
 </html>
