@@ -19,48 +19,67 @@
             align-items: center;
             min-height: 100vh;
             text-align: center;
-            background-image: radial-gradient(circle at center, #111e38 0%, #0b0f19 70%);
+            background-image: radial-gradient(circle at center, #111e38 0%, #0b0f19 80%);
             padding: 20px;
+            overflow: hidden;
         }
         .container {
             max-width: 100%;
             width: 100%;
             padding: 10px;
+            animation: fadeIn 1.5s ease-in-out;
         }
         .quote {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #94a3b8;
             font-style: italic;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             line-height: 1.5;
+            letter-spacing: 0.5px;
         }
         h1 {
-            font-size: 2.2rem;
+            font-size: 1.8rem; /* Font size adjust kiya taaki 'S' niche na gire */
             color: #00f0ff;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
-            word-break: break-word;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+            animation: glow 2s infinite alternate;
         }
         .founder {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #64748b;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
             text-transform: uppercase;
         }
         .status {
             display: inline-block;
-            padding: 10px 24px;
+            padding: 12px 28px;
             border: 2px solid #00f0ff;
             color: #00f0ff;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: bold;
             border-radius: 30px;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
             text-transform: uppercase;
             letter-spacing: 1.5px;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Animations for "Halchal" / Professional feel */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(0, 240, 255, 0.3); }
+            to { text-shadow: 0 0 25px rgba(0, 240, 255, 0.8); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 240, 255, 0.2); }
+            50% { transform: scale(1.03); box-shadow: 0 0 25px rgba(0, 240, 255, 0.5); }
+            100% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 240, 255, 0.2); }
         }
     </style>
 </head>
